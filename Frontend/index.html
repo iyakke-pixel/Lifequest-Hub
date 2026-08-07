@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeQuest — Gamify Your Student Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        quest: {
+                            bg: '#090d16',
+                            card: '#0f172a',
+                            border: '#1e293b',
+                            accent: '#38bdf8',
+                            emerald: '#10b981',
+                            amber: '#f59e0b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
+        .glow-effect { animation: pulseGlow 6s infinite ease-in-out; }
+        
+        /* Smooth Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #090d16; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 9999px; }
+    </style>
+</head>
+<body class="bg-[#090d16] text-slate-100 font-sans min-h-screen antialiased selection:bg-sky-500 selection:text-slate-950 flex flex-col justify-between">
+
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-tr from-sky-500/10 via-indigo-500/10 to-purple-500/10 blur-[120px] rounded-full pointer-events-none glow-effect"></div>
+
+    <nav class="max-w-7xl mx-auto w-full p-6 flex justify-between items-center relative z-20 border-b border-slate-800/60">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-500 flex items-center justify-center text-xl shadow-lg shadow-sky-500/20">
+                ⚔️
+            </div>
+            <span class="text-xl font-black text-slate-100 tracking-wider uppercase">LifeQuest</span>
+        </div>
+
+        <div class="flex items-center gap-4 text-xs font-bold">
+            <a href="login.html" id="nav-login-btn" class="text-slate-300 hover:text-sky-400 transition px-3 py-2">Sign In</a>
+            <a href="signup.html" id="nav-cta-btn" class="bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-400 hover:to-indigo-400 text-slate-950 px-4 py-2.5 rounded-xl font-black transition shadow-lg shadow-sky-500/20 active:scale-95">
+                Get Started Free
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 pt-16 pb-24 relative z-10 space-y-20 text-center">
+
+        <div class="max-w-3xl mx-auto space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase tracking-widest">
+                <span>⚡ Built for College Scholars</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-slate-100 leading-tight">
+                Turn Your Daily Homework & Budgeting into an <span class="bg-gradient-to-r from-sky-400 via-indigo-400 to-emerald-400 bg-clip-text text-transparent">RPG Adventure</span>
+            </h1>
+
+            <p class="text-slate-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+                Level up your GPA, track savings goals, split roommate bills, and compete on the campus leaderboard—all in one gamified productivity workspace.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+                <a href="signup.html" class="w-full sm:w-auto bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-400 hover:to-indigo-400 text-slate-950 font-black px-8 py-4 rounded-xl text-sm transition shadow-xl shadow-sky-500/25 active:scale-95">
+                    Start Your Quest Now 🚀
+                </a>
+                <a href="#demo" class="w-full sm:w-auto bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 font-bold px-6 py-4 rounded-xl text-sm transition">
+                    Try Live Demo ↓
+                </a>
+            </div>
+        </div>
+
+        <section id="demo" class="max-w-xl mx-auto bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-2xl text-left space-y-4 backdrop-blur-md">
+            <div class="flex justify-between items-center border-b border-slate-800/80 pb-3">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">🎮 Live Demo Simulator</span>
+                <span class="text-xs font-bold text-sky-400">Level 1 Adventurer</span>
+            </div>
+
+            <div class="space-y-1.5">
+                <div class="flex justify-between text-xs font-bold">
+                    <span class="text-slate-400">Demo XP</span>
+                    <span class="text-sky-400 font-mono"><span id="demo-xp">100</span> / 500 XP</span>
+                </div>
+                <div class="w-full bg-slate-950 rounded-full h-3 p-0.5 border border-slate-800">
+                    <div id="demo-xp-bar" class="bg-gradient-to-r from-sky-500 to-emerald-400 h-full rounded-full transition-all duration-500" style="width: 20%;"></div>
+                </div>
+            </div>
+
+            <ul id="demo-quest-list" class="space-y-2 text-xs">
+                <li class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] bg-sky-500/10 text-sky-400 border border-sky-500/20 px-2 py-0.5 rounded mr-2 font-bold">📚 Study</span>
+                        <span class="font-bold text-slate-200">Finish History Reading</span>
+                    </div>
+                    <button onclick="testCompleteQuest(this, 150)" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-black px-3 py-1.5 rounded-lg transition text-xs shadow-md">
+                        +150 XP
+                    </button>
+                </li>
+            </ul>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left pt-12">
+            
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-3 hover:border-sky-500/40 transition">
+                <div class="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center font-bold text-lg border border-sky-500/20">
+                    ⚔️
+                </div>
+                <h3 class="text-lg font-bold text-slate-100">Gamified Homework</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Convert coursework into quests. Gain XP, maintain streak flame multipliers, and level up as you complete assignments.
+                </p>
+            </div>
+
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-3 hover:border-emerald-500/40 transition">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg border border-emerald-500/20">
+                    💰
+                </div>
+                <h3 class="text-lg font-bold text-slate-100">Smart Student Vault</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Set up savings goals for textbooks or tuition, track expenses, and split dorm or apartment bills hassle-free.
+                </p>
+            </div>
+
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-3 hover:border-purple-500/40 transition">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold text-lg border border-purple-500/20">
+                    🏆
+                </div>
+                <h3 class="text-lg font-bold text-slate-100">Campus Ranks</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Compete on the live university leaderboard. Earn badges and rank among top scholars across campus.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="max-w-7xl mx-auto w-full p-6 border-t border-slate-800/80 text-center md:flex md:justify-between items-center text-xs text-slate-500 relative z-20 space-y-3 md:space-y-0">
+        <p>© 2026 LifeQuest. Built for students worldwide.</p>
+        <div class="flex justify-center gap-6">
+            <a href="dashboard.html" class="hover:text-slate-300 transition">Dashboard</a>
+            <a href="login.html" class="hover:text-slate-300 transition">Login</a>
+            <a href="signup.html" class="hover:text-slate-300 transition">Register</a>
+        </div>
+    </footer>
+
+    <script>
+        // Check if user is logged in to adapt CTA buttons dynamically
+        window.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            if (token) {
+                const navCta = document.getElementById('nav-cta-btn');
+                const navLogin = document.getElementById('nav-login-btn');
+                if (navCta) {
+                    navCta.innerText = "Open Dashboard ➔";
+                    navCta.href = "dashboard.html";
+                }
+                if (navLogin) navLogin.classList.add('hidden');
+            }
+        });
+
+        // Demo Simulator Functionality
+        let currentDemoXp = 100;
+        function testCompleteQuest(btn, xpReward) {
+            currentDemoXp += xpReward;
+            if (currentDemoXp > 500) currentDemoXp = 500;
+
+            document.getElementById('demo-xp').innerText = currentDemoXp;
+            const percentage = (currentDemoXp / 500) * 100;
+            document.getElementById('demo-xp-bar').style.width = `${percentage}%`;
+
+            btn.closest('li').classList.add('opacity-50', 'pointer-events-none');
+            btn.innerText = "✓ Complete";
+            btn.className = "bg-slate-800 text-slate-500 font-bold px-3 py-1.5 rounded-lg text-xs";
+        }
+    </script>
+</body>
+</html>
